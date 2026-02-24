@@ -78,7 +78,7 @@ Subtle animations and hover interactions are used to enhance polish without dist
 
 ## Live Deployment
 
-(Deployment link will be added here)
+https://hydenithinsumithraowk.vercel.app/
 
 ---
 
