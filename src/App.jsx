@@ -14,8 +14,8 @@ const HydePortfolio = () => {
       email: "hydenithinsumithraowk@gmail.com",
       linkedin: "https://linkedin.com/in/hydenithinsumithraowk/",
       github: "https://github.com/HydeNithin",
-      resumeUrl: "/resume.pdf", 
-      photoUrl: "/profile.jpg", 
+      resumeUrl: "/resume.pdf",
+      photoUrl: "/profile.jpg",
       tagline:
         "Production-minded engineer with experience in mission-critical financial platforms and full-stack systems, plus applied ML work. I build secure, scalable, and reliable software with strong SQL and cloud fundamentals.",
       highlights: [
@@ -29,23 +29,12 @@ const HydePortfolio = () => {
     []
   );
 
-  // Skills (expanded to include EVERYTHING you listed; kept neat like your current layout)
   const skills = useMemo(
     () => [
       {
         group: "Languages",
         icon: "💻",
-        items: [
-          "Python",
-          "Java",
-          "JavaScript",
-          "C",
-          "C++",
-          "C#",
-          "Bash",
-          "SQL",
-          "OOP",
-        ],
+        items: ["Python", "Java", "JavaScript", "C", "C++", "C#", "Bash", "SQL", "OOP"],
       },
       {
         group: "Web Technologies",
@@ -62,16 +51,7 @@ const HydePortfolio = () => {
       {
         group: "Frameworks & Libraries",
         icon: "🧩",
-        items: [
-          "Flask",
-          "SQLAlchemy",
-          "TensorFlow",
-          "PyTorch",
-          "NumPy",
-          "Pandas",
-          "Scikit-learn",
-          "OpenCV",
-        ],
+        items: ["Flask", "SQLAlchemy", "TensorFlow", "PyTorch", "NumPy", "Pandas", "Scikit-learn", "OpenCV"],
       },
       {
         group: "Databases & Storage",
@@ -90,15 +70,7 @@ const HydePortfolio = () => {
       {
         group: "AI & Machine Learning",
         icon: "🤖",
-        items: [
-          "AI",
-          "Machine Learning",
-          "Deep Learning",
-          "CNNs",
-          "Data Preprocessing",
-          "Data Augmentation",
-          "Model Evaluation",
-        ],
+        items: ["AI", "Machine Learning", "Deep Learning", "CNNs", "Data Preprocessing", "Data Augmentation", "Model Evaluation"],
       },
       {
         group: "Cloud & DevOps",
@@ -108,27 +80,12 @@ const HydePortfolio = () => {
       {
         group: "Monitoring & Tools",
         icon: "🔎",
-        items: [
-          "Git",
-          "JIRA",
-          "Splunk",
-          "AppDynamics",
-          "Log Analysis",
-          "Production Monitoring",
-          "Root Cause Analysis (RCA)",
-        ],
+        items: ["Git", "JIRA", "Splunk", "AppDynamics", "Log Analysis", "Production Monitoring", "Root Cause Analysis (RCA)"],
       },
       {
         group: "Methodologies & Practices",
         icon: "🧠",
-        items: [
-          "Agile/Scrum",
-          "SDLC",
-          "SRE Practices",
-          "DevOps Practices",
-          "Production Support",
-          "Release Management",
-        ],
+        items: ["Agile/Scrum", "SDLC", "SRE Practices", "DevOps Practices", "Production Support", "Release Management"],
       },
       {
         group: "Business Process Automation",
@@ -204,7 +161,6 @@ const HydePortfolio = () => {
           "Normalized MySQL schemas for users, appointments, records; optimized transactional flows for integrity.",
           "Integrated Fast2SMS for automated reminders and emergency notifications to reduce manual outreach.",
         ],
-        links: { github: "#", demo: "#" },
       },
       {
         id: "cnn",
@@ -226,7 +182,6 @@ const HydePortfolio = () => {
           "Implemented normalization, contrast enhancement, resizing, and controlled augmentation (rotate/flip/brightness).",
           "Performed systematic hyperparameter tuning and architectural refinements to improve stability and performance.",
         ],
-        links: { github: "#", demo: "#" },
       },
       {
         id: "expense",
@@ -248,7 +203,6 @@ const HydePortfolio = () => {
           "Implemented authentication, sessions, and role-based controls for protected handling of financial data.",
           "Built Matplotlib reports for monthly trends, category-level spending, and savings patterns.",
         ],
-        links: { github: "#", demo: "#" },
       },
     ],
     []
@@ -295,8 +249,20 @@ const HydePortfolio = () => {
   const iconPill =
     "h-10 w-10 rounded-2xl border border-white/10 bg-white/6 grid place-items-center";
 
+  // ✅ small “Apple-style” intro motion for the whole page content
+  const pageIntro = {
+    hidden: { opacity: 0, y: 14, filter: "blur(6px)" },
+    show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.65, ease: "easeOut" } },
+  };
+
+  // ✅ subtle glow on project cards
+  const projectGlow =
+    "relative overflow-hidden before:absolute before:inset-0 before:opacity-0 before:transition before:duration-300 " +
+    "before:bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.14),transparent_45%)] " +
+    "hover:before:opacity-100";
+
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-white/20">
+    <div className="min-h-[100svh] bg-neutral-950 text-neutral-100 selection:bg-white/20">
       {/* Background */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
         <motion.div
@@ -327,7 +293,8 @@ const HydePortfolio = () => {
                 </div>
               </button>
 
-              <nav className="flex items-center gap-1">
+              {/* ✅ mobile-friendly nav (scroll instead of squeezing) */}
+              <nav className="flex items-center gap-1 overflow-x-auto whitespace-nowrap [-webkit-overflow-scrolling:touch] scrollbar-none">
                 {nav.map((item) => {
                   const active = activeSection === item.id;
                   return (
@@ -335,7 +302,7 @@ const HydePortfolio = () => {
                       key={item.id}
                       onClick={() => scrollTo(item.id)}
                       className={[
-                        "rounded-xl px-3 py-2 text-sm transition",
+                        "shrink-0 rounded-xl px-3 py-2 text-sm transition",
                         active ? "bg-white/12 border border-white/10" : "hover:bg-white/8",
                       ].join(" ")}
                     >
@@ -376,10 +343,11 @@ const HydePortfolio = () => {
         </div>
       </header>
 
-      <main className="relative mx-auto max-w-6xl px-4 pb-20">
+      {/* ✅ safe-area top padding to avoid mobile notch/address-bar overlap */}
+      <main className="relative mx-auto max-w-6xl px-4 pb-20 pt-[calc(env(safe-area-inset-top)+8px)]">
         {/* Hero */}
-        <section id="home" className="pt-10 sm:pt-14">
-          <motion.div variants={fadeUp} initial="hidden" animate="show" className="grid gap-6">
+        <section id="home" className="scroll-mt-28 pt-10 sm:pt-14">
+          <motion.div variants={pageIntro} initial="hidden" animate="show" className="grid gap-6">
             <div className={`rounded-3xl p-6 sm:p-10 ${glass}`}>
               <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-10 items-start">
                 {/* Left hero */}
@@ -410,12 +378,13 @@ const HydePortfolio = () => {
                     ))}
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-3">
+                  {/* ✅ mobile buttons look better as full-width */}
+                  <div className="flex flex-col sm:flex-row gap-3 w-full">
                     <motion.button
                       whileHover={{ y: -2 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => scrollTo("projects")}
-                      className="rounded-2xl bg-white text-neutral-950 px-5 py-3 font-semibold shadow hover:shadow-lg transition"
+                      className="w-full sm:w-auto rounded-2xl bg-white text-neutral-950 px-5 py-3 font-semibold shadow hover:shadow-lg transition"
                     >
                       View Projects
                     </motion.button>
@@ -426,7 +395,7 @@ const HydePortfolio = () => {
                       href={profile.linkedin}
                       target="_blank"
                       rel="noreferrer"
-                      className="rounded-2xl border border-white/10 bg-white/8 px-5 py-3 font-semibold hover:bg-white/12 transition"
+                      className="w-full sm:w-auto rounded-2xl border border-white/10 bg-white/8 px-5 py-3 font-semibold hover:bg-white/12 transition"
                     >
                       LinkedIn
                     </motion.a>
@@ -435,14 +404,14 @@ const HydePortfolio = () => {
                       whileHover={{ y: -2 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={copyEmail}
-                      className="rounded-2xl border border-white/10 bg-white/8 px-5 py-3 font-semibold hover:bg-white/12 transition"
+                      className="w-full sm:w-auto rounded-2xl border border-white/10 bg-white/8 px-5 py-3 font-semibold hover:bg-white/12 transition"
                     >
                       {copied ? "Email Copied" : "Copy Email"}
                     </motion.button>
                   </div>
                 </div>
 
-                {/* Right profile card (photo BIG, text UNDER it; no cut-off) */}
+                {/* Right profile card (keep your sizing exactly; no changes) */}
                 <div className={`rounded-3xl p-7 sm:p-8 ${glass}`}>
                   <div className="flex flex-col items-start">
                     <img
@@ -455,12 +424,8 @@ const HydePortfolio = () => {
                     />
 
                     <div className="mt-5 w-full">
-                      <div className="text-xl sm:text-2xl font-semibold leading-tight">
-                        {profile.name}
-                      </div>
-                      <div className="mt-1 text-sm sm:text-base text-neutral-300">
-                        {profile.title}
-                      </div>
+                      <div className="text-xl sm:text-2xl font-semibold leading-tight">{profile.name}</div>
+                      <div className="mt-1 text-sm sm:text-base text-neutral-300">{profile.title}</div>
                       <div className="mt-2 text-sm text-neutral-400">{profile.location}</div>
                     </div>
                   </div>
@@ -471,7 +436,7 @@ const HydePortfolio = () => {
         </section>
 
         {/* Projects */}
-        <section id="projects" className="pt-14">
+        <section id="projects" className="scroll-mt-28 pt-14">
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -495,14 +460,11 @@ const HydePortfolio = () => {
                 whileHover={{ y: -6 }}
                 whileTap={{ scale: 0.99 }}
                 onClick={() => setOpenProjectId(p.id)}
-                className={`text-left rounded-3xl p-5 ${glass} hover:bg-white/8 transition`}
+                className={`text-left rounded-3xl p-5 ${glass} ${projectGlow} hover:bg-white/8 transition`}
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    {/* ✅ Bigger project headings */}
-                    <div className="text-lg sm:text-xl font-semibold leading-snug">
-                      {p.name}
-                    </div>
+                    <div className="text-lg sm:text-xl font-semibold leading-snug">{p.name}</div>
                     <div className="text-xs text-neutral-400 mt-1">{p.dates}</div>
                   </div>
                   <span className="shrink-0 rounded-full border border-white/10 bg-white/6 px-2 py-1 text-xs text-neutral-200">
@@ -600,7 +562,7 @@ const HydePortfolio = () => {
                           ))}
                         </div>
 
-                        
+                        {/* ✅ removed GitHub + Live Demo buttons from modal */}
 
                         <div className="text-xs text-neutral-400">@Hyde Nithin Sumithra Owk.</div>
                       </div>
@@ -613,7 +575,7 @@ const HydePortfolio = () => {
         </section>
 
         {/* Experience */}
-        <section id="experience" className="pt-14">
+        <section id="experience" className="scroll-mt-28 pt-14">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}>
             <h2 className="text-2xl sm:text-3xl font-semibold">Experience</h2>
             <p className="text-neutral-300 mt-2 max-w-2xl">
@@ -661,7 +623,7 @@ const HydePortfolio = () => {
         </section>
 
         {/* Skills */}
-        <section id="skills" className="pt-14">
+        <section id="skills" className="scroll-mt-28 pt-14">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}>
             <h2 className="text-2xl sm:text-3xl font-semibold">Skills</h2>
             <p className="text-neutral-300 mt-2 max-w-2xl">
@@ -702,7 +664,7 @@ const HydePortfolio = () => {
         </section>
 
         {/* Contact */}
-        <section id="contact" className="pt-14">
+        <section id="contact" className="scroll-mt-28 pt-14">
           <motion.div
             variants={fadeUp}
             initial="hidden"
