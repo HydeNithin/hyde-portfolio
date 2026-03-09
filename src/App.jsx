@@ -8,11 +8,11 @@ const HydePortfolio = () => {
 
   const profile = useMemo(
     () => ({
-      name: "Hyde Nithin Sumithra Owk",
-      title: "Software Engineer • Backend / Data / ML",
+      name: "Nithin Sumithra",
+      title: "Software Engineer",
       location: "USA",
-      email: "hydenithinsumithraowk@gmail.com",
-      linkedin: "https://linkedin.com/in/hydenithinsumithraowk/",
+      email: "summynithin11@gmail.com",
+      linkedin: "https://www.linkedin.com/in/nithinoh/",
       github: "https://github.com/HydeNithin",
       resumeUrl: "/resume.pdf",
       photoUrl: "/profile.jpg",
@@ -285,7 +285,7 @@ const HydePortfolio = () => {
             <div className="flex items-center justify-between px-4 py-3">
               <button onClick={() => scrollTo("home")} className="group flex items-center gap-2">
                 <div className="h-9 w-9 rounded-xl bg-white/10 grid place-items-center border border-white/10">
-                  <span className="text-sm font-semibold">HO</span>
+                  <span className="text-sm font-semibold">NS</span>
                 </div>
                 <div className="hidden sm:block">
                   <div className="text-sm font-semibold leading-tight">{profile.name}</div>
@@ -355,11 +355,11 @@ const HydePortfolio = () => {
                   <div className="flex flex-col gap-2">
                     <div className="inline-flex items-center gap-2 self-start rounded-full border border-white/10 bg-white/6 px-3 py-1 text-xs text-neutral-200">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                      Open to SWE / SDE • Data Engineer • AI/ML
+                      Open to SWE / SDE • Data Engineer
                     </div>
 
                     <h1 className="text-4xl sm:text-6xl font-semibold leading-tight tracking-tight">
-                      Hello, <span className="text-white/90">Hyde Here</span>
+                      Hello, <span className="text-white/90">Nithin Here</span>
                     </h1>
 
                     <p className="max-w-3xl text-neutral-200/90 text-base sm:text-lg leading-relaxed">
